@@ -2,8 +2,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Random;
 
-public class util {
+public class MazeUtil {
     public static void exportTxtFile(String content) {
         String filePath = "./output"+ getNowTime(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) +".txt"; // ファイルパスの設定
 
@@ -24,5 +25,14 @@ public class util {
         // DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
         return now.format(formatter);
+    }
+
+    public static int generateRandomNumber(int min, int max) {
+        if (min >= max) {
+            throw new IllegalArgumentException("Invalid range");
+        }
+
+        Random random = new Random();
+        return random.nextInt(max - min + 1) + min;
     }
 }

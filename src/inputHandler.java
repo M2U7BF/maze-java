@@ -1,4 +1,3 @@
-public class inputHandler {
+public class InputHandler {
     // - inputHundler
-    // - initializeField
 }
